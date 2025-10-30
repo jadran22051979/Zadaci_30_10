@@ -32,7 +32,7 @@ public class Novcanice {
         System.out.println("Kovanice i novačnice za iznos u Eurima  :" + iznosEuri + "\t su");
         for (int i = 0; i < kovanice.length; i++) {
             if (novoPolje[i] > 0) {
-                if (kovanice[i] >= 1)
+                if (kovanice[i] >= 5)
                     System.out.println("Broj novčanica od iznosa  : €" + (int) kovanice[i] + "\t su :" + novoPolje[i]);
                 else
                     System.out.println("Broj kovanica od iznosa : €" + kovanice[i] + "\t su :" + novoPolje[i]);
