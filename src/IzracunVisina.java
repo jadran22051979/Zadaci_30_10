@@ -10,21 +10,26 @@ public class IzracunVisina {
         double suma = 0.0;
 
         System.out.println("Unesite visinu :" + brojVisina + "\tljudi u metrima");
-        for (int i = 0; i < brojVisina; i++) {
-            //U ispisu će ići od visine 1
-            System.out.println((i + 1) + " \t Visina : ");
-            //Punjenje polja visine tipa double s unosima
-            visine[i] = Double.parseDouble(sc.nextLine());
-            //U slučaju da je visina manja od 0.0 i veća od 2.5 ispisujemo poruku
-            if (visine[i] < 0.0 || visine[i] > 2.5) {
-                System.out.println("\n Molimo unesite visinu veću od 0.0 i manju od 2.5 metara");
-                //Umanji i za 1 tj.traži ponovni unos za unos i
-                i--;
-                //Idi u slijedeću iteraciju
-                continue;
+        try {
+            for (int i = 0; i < brojVisina; i++) {
+                //U ispisu će ići od visine 1
+                System.out.println((i + 1) + " \t Visina : ");
+                //Punjenje polja visine tipa double s unosima
+                visine[i] = Double.parseDouble(sc.nextLine());
+                //U slučaju da je visina manja od 0.0 i veća od 2.5 ispisujemo poruku
+                if (visine[i] <= 0.0 || visine[i] > 2.5) {
+                    System.out.println("\n Molimo unesite visinu veću od 0.0 i manju od 2.5 metara");
+                    //Umanji i za 1 tj.traži ponovni unos za unos i
+                    i--;
+                    //Idi u slijedeću iteraciju
+                    continue;
+                }
+
+                //Suma je zbroj visina koje će nam kasnije služiti za izračun prosjeka itd
+                suma += visine[i];
             }
-            //Suma je zbroj visina koje će nam kasnije služiti za izračun prosjeka itd
-            suma += visine[i];
+        } catch (NumberFormatException e) {
+            throw new NumberFormatException("Pogreška u unosu!Molimo unesite brojčanu vrijednost!");
         }
         //Prosječna visina
         double proscjenaVisina = suma / brojVisina;
